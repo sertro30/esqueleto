@@ -389,54 +389,67 @@
       if (data[selectedOption].additionalContent) {
         additionalContent.innerHTML = data[selectedOption].additionalContent;
       }
-      document.getElementById(`menu${containerId.charAt(containerId.length - 1)}Content`).style.display = 'block';
+      document.getElementById(`menu${containerId.charAt(containerId.length - 1)}Content`).style.display = 'none'; // Ocultar contenido principal
 
       // Mostrar el contenedor de subopciones
       if (data[selectedOption].subOptions) {
-        subOptionsContainer.classList.remove('hidden');
-        displaySubOptions(selectedOption, data[selectedOption].subOptions, containerId.charAt(containerId.length - 1));
-      } else {
-        subOptionsContainer.classList.add('hidden'); // Ocultar si no hay subopciones
-      }
-    }
+    subOptionsContainer.classList.remove('hidden');
+    displaySubOptions(selectedOption, data[selectedOption].subOptions, containerId.charAt(containerId.length - 1));
+  } else {
+    subOptionsContainer.classList.add('hidden'); // Ocultar si no hay subopciones
+    document.getElementById(`menu${containerId.charAt(containerId.length - 1)}Content`).style.display = 'block'; // Mostrar contenido si no hay subopciones
+  }
+}
   }
 
 
 
 
-        function displaySubMenu(parentOption, selectedSubOption, subOptionsData) {
-            const stepsList = document.getElementById(`steps${parentOption.charAt(parentOption.length - 1)}`);
-            const downloadLink = document.getElementById(`downloadLink${parentOption.charAt(parentOption.length - 1)}`);
-            const additionalContent = document.getElementById(`additionalContent${parentOption.charAt(parentOption.length - 1)}`);
-            stepsList.innerHTML = '';
-            additionalContent.innerHTML = '';
-            if (selectedSubOption && subOptionsData[selectedSubOption]) {
-                subOptionsData[selectedSubOption].steps.forEach(step => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = step;
-                    stepsList.appendChild(listItem);
-                });
-                downloadLink.href = subOptionsData[selectedSubOption].file;
-                downloadLink.textContent = `Descargar ${subOptionsData[selectedSubOption].file}`;
-                if (subOptionsData[selectedSubOption].additionalContent) {
-                    additionalContent.innerHTML = subOptionsData[selectedSubOption].additionalContent;
-                }
-            }
-        }
-        function displaySubOptions(parentOption, subOptionsData, menuNumber) {
-    const subOptionsList = document.getElementById(`subOptionsList${menuNumber}`);
-    subOptionsList.innerHTML = ''; // Limpiar sub opciones previas
-    for (let key in subOptionsData) {
-        const optionDiv = document.createElement('div');
-        optionDiv.className = 'option-item';
-        optionDiv.textContent = key.replace('_', ' ');
-        optionDiv.setAttribute('data-value', key);
-        optionDiv.onclick = () => displaySubMenu(parentOption, key, subOptionsData); // Corregir aquí
+ 
+function displaySubMenu(parentOption, selectedSubOption, subOptionsData, menuNumber) {
+  const stepsList = document.getElementById(`steps${menuNumber}`);
+  const downloadLink = document.getElementById(`downloadLink${menuNumber}`);
+  const additionalContent = document.getElementById(`additionalContent${menuNumber}`);
 
-        subOptionsList.appendChild(optionDiv);
+  stepsList.innerHTML = '';
+  additionalContent.innerHTML = '';
+
+  if (selectedSubOption && subOptionsData[selectedSubOption]) {
+    subOptionsData[selectedSubOption].steps.forEach(step => {
+      const listItem = document.createElement('li');
+      listItem.textContent = step;
+      stepsList.appendChild(listItem);
+    });
+
+    downloadLink.href = subOptionsData[selectedSubOption].file;
+    downloadLink.textContent = `Descargar ${subOptionsData[selectedSubOption].file}`;
+
+    if (subOptionsData[selectedSubOption].additionalContent) {
+      additionalContent.innerHTML = subOptionsData[selectedSubOption].additionalContent;
     }
+  }
+
+  // Mostrar el contenido del submenú
+  document.getElementById(`menu${menuNumber}Content`).style.display = 'block';
 }
 
+function displaySubOptions(parentOption, subOptionsData, menuNumber) {
+  const subOptionsList = document.getElementById(`subOptionsList${menuNumber}`);
+  subOptionsList.innerHTML = ''; // Limpiar sub opciones previas
+
+  for (let key in subOptionsData) {
+    const optionDiv = document.createElement('div');
+    optionDiv.className = 'option-item';
+    optionDiv.textContent = key.replace('_', ' ');
+    optionDiv.setAttribute('data-value', key);
+    optionDiv.onclick = () => {
+      displaySubMenu(parentOption, key, subOptionsData, menuNumber);
+      filterOptions(`subOptionsList${menuNumber}`); // Filtrar las subopciones al hacer clic
+    };
+
+    subOptionsList.appendChild(optionDiv);
+  }
+}
 
         function showMenu(menuId) {
             document.getElementById('menu1Container').classList.add('hidden');
