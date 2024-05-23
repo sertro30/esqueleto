@@ -194,9 +194,9 @@
         <!-- Contenido a la derecha para el primer menú -->
         <div id="content1" class="content">
             <div id="menu1Content">
-                <h2>SOLUCIONES</h2>
+                
                 <ul id="steps1" class="steps"></ul>
-                <a id="downloadLink1" href="#" download>Descargar Archivo</a>
+                <a id="downloadLink1" href="#" download></a>
                 <div id="additionalContent1"></div>
             </div>
         </div>
@@ -241,62 +241,364 @@
         menu: "menu1",
         subopciones: [
             // ... (subopciones de TITAN ya incluidas)
-            { id: 101, nombre: "Análisis de información", contenido: `
-                            <p>Este proceso permite analizar datos relevantes para la toma de decisiones.</p>
-                            <p><a href="colocar PEDECO.txt" download>Descargar guía en PDF</a></p>
-                            <p><a href="FCP-Metodos de pago.docx" download>Descargar datos de ejemplo en Excel</a></p>
+            { id: 101, nombre: "Análisis de información",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
                         `
                     },
-                    { id: 102, nombre: "Aprovisionamiento GPON Internet", contenido: "<p>Contenido para Aprovisionamiento GPON Internet</p>" },
-                    { id: 103, nombre: "Aprovisionamiento GPON Telefonía", contenido: "<p>Contenido para Aprovisionamiento GPON Telefonía</p>" },
-                    { id: 104, nombre: "Aprovisionamiento Internet", contenido: "<p>Contenido para Aprovisionamiento Internet</p>" },
-                    { id: 105, nombre: "Aprovisionamiento Telefonía", contenido: "<p>Contenido para Aprovisionamiento Telefonía</p>" },
-                    { id: 106, nombre: "Aprovisionamiento TV", contenido: "<p>Contenido para Aprovisionamiento TV</p>" },
-                    { id: 107, nombre: "Pagada", contenido: "<p>Contenido para Pagada</p>" },
-                    { id: 108, nombre: "Conciliación - Controladores", contenido: "<p>Contenido para Conciliación - Controladores</p>" },
-                    { id: 109, nombre: "Conciliación - Débitos Bancarios", contenido: "<p>Contenido para Conciliación - Débitos Bancarios</p>" },
-                    { id: 110, nombre: "Conciliación - Equipos", contenido: "<p>Contenido para Conciliación - Equipos</p>" },
-                    { id: 111, nombre: "Conciliación - Facturación", contenido: "<p>Contenido para Conciliación - Facturación</p>" },
-                    { id: 112, nombre: "Conciliación - Otros", contenido: "<p>Contenido para Conciliación - Otros</p>" },
-                    { id: 113, nombre: "Conciliación - Pagos", contenido: "<p>Contenido para Conciliación - Pagos</p>" },
-                    { id: 114, nombre: "Conciliación - Satelital Prepago", contenido: "<p>Contenido para Conciliación - Satelital Prepago</p>" },
-                    { id: 115, nombre: "Creación Nodos", contenido: "<p>Contenido para Creación Nodos</p>" },
-                    { id: 116, nombre: "Facturación - Buró de Crédito", contenido: "<p>Contenido para Facturación - Buró de Crédito</p>" },
-                    { id: 117, nombre: "Facturación - Detalle de Factura", contenido: "<p>Contenido para Facturación - Detalle de Factura</p>" },
-                    { id: 118, nombre: "Facturación - Electrónica", contenido: "<p>Contenido para Facturación - Electrónica</p>" },
-                    { id: 119, nombre: "Facturación - Mal Facturado", contenido: "<p>Contenido para Facturación - Mal Facturado</p>" },
-                    { id: 120, nombre: "Facturación - No Facturado", contenido: "<p>Contenido para Facturación - No Facturado</p>" },
-                    { id: 121, nombre: "Facturación - Otros", contenido: "<p>Contenido para Facturación - Otros</p>" },
-                    { id: 122, nombre: "Facturación - Promociones y Descuentos", contenido: "<p>Contenido para Facturación - Promociones y Descuentos</p>" },
-                    { id: 123, nombre: "Flujos - BAJVALPEN", contenido: "<p>Contenido para Flujos - BAJVALPEN</p>" },
-                    { id: 124, nombre: "Flujos - CAMPLAF", contenido: "<p>Contenido para Flujos - CAMPLAF</p>" },
-                    { id: 125, nombre: "Flujos - CAMUSEREM", contenido: "<p>Contenido para Flujos - CAMUSEREM</p>" },
-                    { id: 126, nombre: "Flujos - CANCONT", contenido: "<p>Contenido para Flujos - CANCONT</p>" },
-                    { id: 127, nombre: "Flujos - CANMORAF", contenido: "<p>Contenido para Flujos - CANMORAF</p>" },
-                    { id: 128, nombre: "Flujos - CESDER", contenido: "<p>Contenido para Flujos - CESDER</p>" },
-                    { id: 129, nombre: "Flujos - CSPROADIF", contenido: "<p>Contenido para Flujos - CSPROADIF</p>" },
-                    { id: 130, nombre: "Flujos - FSM_APROAD", contenido: "<p>Contenido para Flujos - FSM_APROAD</p>" },
-                    { id: 131, nombre: "Flujos - FSM_CAMDIR", contenido: "<p>Contenido para Flujos - FSM_CAMDIR</p>" },
-            { id: 132, nombre: "Flujos - FSM_VISTEC", contenido: "<p>Contenido para Flujos - FSM_VISTEC</p>" },      
-            { id: 133, nombre: "Flujos - MIGRA_TEC", contenido: "<p>Contenido para Flujos - MIGRA_TEC</p>" },
-            { id: 134, nombre: "Flujos - MODCUE", contenido: "<p>Contenido para Flujos - MODCUE</p>" },
-            { id: 135, nombre: "Flujos - OTROS", contenido: "<p>Contenido para Flujos - OTROS</p>" },
-            { id: 136, nombre: "Flujos - PRELIQ", contenido: "<p>Contenido para Flujos - PRELIQ</p>" },
-            { id: 137, nombre: "Flujos - REACTCONT", contenido: "<p>Contenido para Flujos - REACTCONT</p>" },
-            { id: 138, nombre: "Flujos - REFREINTEL", contenido: "<p>Contenido para Flujos - REFREINTEL</p>" },
-            { id: 139, nombre: "Flujos - REGCLIF", contenido: "<p>Contenido para Flujos - REGCLIF</p>" },
-            { id: 140, nombre: "Flujos - RPROTCMTVCF", contenido: "<p>Contenido para Flujos - RPROTCMTVCF</p>" },
-            { id: 141, nombre: "Flujos - SUSPRO", contenido: "<p>Contenido para Flujos - SUSPRO</p>" },
-            { id: 142, nombre: "Flujos - VTAART", contenido: "<p>Contenido para Flujos - VTAART</p>" },
-            { id: 143, nombre: "Flujos - WEB_VISTEC", contenido: "<p>Contenido para Flujos - WEB_VISTEC</p>" },
-            { id: 144, nombre: "Promoción - Upgrade", contenido: "<p>Contenido para Promoción - Upgrade</p>" },
-            { id: 145, nombre: "Regularización - Ajustes", contenido: "<p>Contenido para Regularización - Ajustes</p>" },
-            { id: 146, nombre: "Regularización - Clearing", contenido: "<p>Contenido para Regularización - Clearing</p>" },
-            { id: 147, nombre: "Regularización - Equipos", contenido: "<p>Contenido para Regularización - Equipos</p>" },
-            { id: 148, nombre: "Regularización - Pagos", contenido: "<p>Contenido para Regularización - Pagos</p>" },
-            { id: 149, nombre: "Reportes", contenido: "<p>Contenido para Reportes</p>" },
-            { id: 150, nombre: "SGR - Regularización de equipos", contenido: "<p>Contenido para SGR - Regularización de equipos</p>" },
-            { id: 151, nombre: "Xtrim APP", contenido: "<p>Contenido para Xtrim APP</p>" }
+                    { id: 102, nombre: "Aprovisionamiento GPON Internet", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 103, nombre: "Aprovisionamiento GPON Telefonía",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 104, nombre: "Aprovisionamiento Internet", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 105, nombre: "Aprovisionamiento Telefonía", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        `},
+                    { id: 106, nombre: "Aprovisionamiento TV", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 107, nombre: "Pagada", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 108, nombre: "Conciliación - Controladores",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 109, nombre: "Conciliación - Débitos Bancarios",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 110, nombre: "Conciliación - Equipos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 111, nombre: "Conciliación - Facturación",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 112, nombre: "Conciliación - Otros", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 113, nombre: "Conciliación - Pagos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 114, nombre: "Conciliación - Satelital Prepago", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 115, nombre: "Creación Nodos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 116, nombre: "Facturación - Buró de Crédito", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 117, nombre: "Facturación - Detalle de Factura", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 118, nombre: "Facturación - Electrónica", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 119, nombre: "Facturación - Mal Facturado", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 120, nombre: "Facturación - No Facturado", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 121, nombre: "Facturación - Otros", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 122, nombre: "Facturación - Promociones y Descuentos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 123, nombre: "Flujos - BAJVALPEN", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 124, nombre: "Flujos - CAMPLAF", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 125, nombre: "Flujos - CAMUSEREM", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 126, nombre: "Flujos - CANCONT", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 127, nombre: "Flujos - CANMORAF", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 128, nombre: "Flujos - CESDER", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 129, nombre: "Flujos - CSPROADIF", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 130, nombre: "Flujos - FSM_APROAD", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+                    { id: 131, nombre: "Flujos - FSM_CAMDIR", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 132, nombre: "Flujos - FSM_VISTEC", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },      
+            { id: 133, nombre: "Flujos - MIGRA_TEC", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 134, nombre: "Flujos - MODCUE", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 135, nombre: "Flujos - OTROS",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 136, nombre: "Flujos - PRELIQ", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 137, nombre: "Flujos - REACTCONT", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 138, nombre: "Flujos - REFREINTEL", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 139, nombre: "Flujos - REGCLIF", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 140, nombre: "Flujos - RPROTCMTVCF", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 141, nombre: "Flujos - SUSPRO", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 142, nombre: "Flujos - VTAART", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 143, nombre: "Flujos - WEB_VISTEC", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 144, nombre: "Promoción - Upgrade",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 145, nombre: "Regularización - Ajustes", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 146, nombre: "Regularización - Clearing", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 147, nombre: "Regularización - Equipos",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        `},
+            { id: 148, nombre: "Regularización - Pagos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 149, nombre: "Reportes", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        `},
+            { id: 150, nombre: "SGR - Regularización de equipos", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 151, nombre: "Xtrim APP", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` }
         ]
     },
     {
@@ -304,21 +606,88 @@
         nombre: "CONTRATACION WEB",
         menu: "menu1",
         subopciones: [
-            { id: 201, nombre: "Begin Task - Punto Rojo", contenido: "<p>Begin Task - Punto Rojo</p>" },
-            { id: 202, nombre: "Begin Task - Sin Error", contenido: "<p>Begin Task - Sin Error</p>" },
-            { id: 203, nombre: "Biometria", contenido: "<p>Biometria</p>" },
-            { id: 204, nombre: "Close Order - Punto Rojo", contenido: "<p>Close Order - Punto Rojo</p>" },
-            { id: 205, nombre: "Código de vendedor", contenido: "<p>Código de vendedor</p>" },
-            { id: 206, nombre: "E-mail aceptación", contenido: "<p>E-mail aceptación</p>" },
-            { id: 207, nombre: "Enciclado", contenido: "<p>Enciclado</p>" },
-            { id: 208, nombre: "FSM Crea Orden", contenido: "<p>FSM Crea Orden</p>" },
-            { id: 209, nombre: "No asigna cupo", contenido: "<p>No asigna cupo</p>" },
-            { id: 210, nombre: "No crea cliente", contenido: "<p>No crea cliente</p>" },
-            { id: 211, nombre: "No crea cuenta", contenido: "<p>No crea cuenta</p>" },
+            { id: 201, nombre: "Begin Task - Punto Rojo", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 202, nombre: "Begin Task - Sin Error", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 203, nombre: "Biometria", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 204, nombre: "Close Order - Punto Rojo", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 205, nombre: "Código de vendedor", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 206, nombre: "E-mail aceptación", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 207, nombre: "Enciclado", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 208, nombre: "FSM Crea Orden", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 209, nombre: "No asigna cupo", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 210, nombre: "No crea cliente", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 211, nombre: "No crea cuenta", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
             { id: 212, nombre: "No Genera Orden y Tarea", contenido: `
-                            <p>Manual de flujo de contratación WEBPRO</p>
+            <h2>Manual de Soluciones</h2>               
                             <p><a href="Manual - Flujo de Contratación WEBPRO (Creacion de Orden y Tarea) 1.pdf" download>Manual de flujo de contratación WEBPRO</a></p>
-                            <p>Manual Técnico de flujo de contratación WEBPRO</p>
+                            <br>
+                            <h2>Manual Técnico </h2>
                             <p><a href="Manual Técnico Flujo de Contratación(proceso simplificado).pdf" download>Manual Técnico de flujo de contratación WEBPRO</a></p>
                         ` },
         ]
@@ -328,20 +697,104 @@
         nombre: "ECOMMERCE B2C",
         menu: "menu1",
         subopciones: [
-            { id: 301, nombre: "Biometría (B2B)", contenido: "<p>Biometría (B2B)</p>" },
-            { id: 302, nombre: "E-mail aceptación (B2B)", contenido: "<p>E-mail aceptación (B2B)</p>" },
-            { id: 303, nombre: "FSM Crea orden (B2B)", contenido: "<p>FSM Crea orden (B2B)</p>" },
-            { id: 304, nombre: "No asigna cupo (B2B)", contenido: "<p>No asigna cupo (B2B)</p>" },
-            { id: 305, nombre: "No crea Cliente (B2B)", contenido: "<p>No crea Cliente (B2B)</p>" },
-            { id: 306, nombre: "No crea Cuenta (B2B)", contenido: "<p>No crea Cuenta (B2B)</p>" },
-            { id: 307, nombre: "No Genera Orden y Tarea (B2B)", contenido: "<p>No Genera Orden y Tarea (B2B)</p>" },
-            { id: 308, nombre: "Biometría (B2C)", contenido: "<p>Biometría (B2C)</p>" },
-            { id: 309, nombre: "E-mail aceptación (B2C)", contenido: "<p>E-mail aceptación (B2C)</p>" },
-            { id: 310, nombre: "FSM Crea orden (B2C)",contenido: "<p>FSM Crea orden (B2C)</p>" },
-            { id: 311, nombre: "No asigna cupo (B2C)", contenido: "<p>No asigna cupo (B2C)</p>" },
-            { id: 312, nombre: "No crea Cliente (B2C)", contenido: "<p>No crea Cliente (B2C)</p>" },
-            { id: 313, nombre: "No crea Cuenta (B2C)", contenido: "<p>No crea Cuenta (B2C)</p>" },
-            { id: 314, nombre: "No Genera Orden y Tarea (B2C)", contenido: "<p>No Genera Orden y Tarea (B2C)</p>" },
+            { id: 301, nombre: "Biometría (B2B)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 302, nombre: "E-mail aceptación (B2B)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 303, nombre: "FSM Crea orden (B2B)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 304, nombre: "No asigna cupo (B2B)",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 305, nombre: "No crea Cliente (B2B)",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 306, nombre: "No crea Cuenta (B2B)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 307, nombre: "No Genera Orden y Tarea (B2B)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 308, nombre: "Biometría (B2C)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        `},
+            { id: 309, nombre: "E-mail aceptación (B2C)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 310, nombre: "FSM Crea orden (B2C)",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 311, nombre: "No asigna cupo (B2C)",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 312, nombre: "No crea Cliente (B2C)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 313, nombre: "No crea Cuenta (B2C)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 314, nombre: "No Genera Orden y Tarea (B2C)", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
         ]
     },
     {
@@ -349,14 +802,62 @@
         nombre: "XTRIM APP",
         menu: "menu1",
         subopciones: [
-            { id: 401, nombre: "Aprovisionar", contenido: "<p>Aprovisionar</p>" },
-            { id: 402, nombre: "Crear estructura",contenido: "<p>Crear estructura</p>" },
-            { id: 403, nombre: "Gratuidad", contenido: "<p>Gratuidad</p>" },
-            { id: 404, nombre: "Reenvió por contingencia", contenido: "<p>Reenvió por contingencia</p>" },
-            { id: 405, nombre: "Reenvió por modificación de cuenta",contenido: "<p>Reenvió por modificación de cuenta</p>" },
-            { id: 406, nombre: "Registro manual",contenido: "<p>Registro manual</p>" },
-            { id: 407, nombre: "Sin paquetes",contenido: "<p>Sin paquetes</p>" },
-            { id: 408, nombre: "Otro",contenido: "<p>Otro</p>" },
+            { id: 401, nombre: "Aprovisionar", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 402, nombre: "Crear estructura",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 403, nombre: "Gratuidad", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 404, nombre: "Reenvió por contingencia", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 405, nombre: "Reenvió por modificación de cuenta",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 406, nombre: "Registro manual",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 407, nombre: "Sin paquetes",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 408, nombre: "Otro",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        `},
         ]
     },
     {
@@ -364,13 +865,55 @@
         nombre: "FSM",
         menu: "menu1",
         subopciones: [
-            { id: 501, nombre: "FSM - VISTEC",contenido: "<p>FSM - VISTEC</p>" },
-            { id: 502, nombre: "FSM - CAMDIR",contenido: "<p>FSM - CAMDIR</p>" },
-            { id: 503, nombre: "FSM - CANCONT",contenido: "<p>FSM - CANCONT</p>" },
-            { id: 504, nombre: "FSM - RPROTC", contenido: "<p>FSM - RPROTC</p>" },
-            { id: 505, nombre: "FSM - MIGRA", contenido: "<p>FSM - MIGRA</p>" },
-            { id: 506, nombre: "FSM - APROAD", contenido: "<p>FSM - APROAD</p>" },
-            { id: 507, nombre: "FSM - OTROS",contenido: "<p>FSM - OTROS</p>" },
+            { id: 501, nombre: "FSM - VISTEC",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 502, nombre: "FSM - CAMDIR",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 503, nombre: "FSM - CANCONT",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 504, nombre: "FSM - RPROTC", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 505, nombre: "FSM - MIGRA", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 506, nombre: "FSM - APROAD", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 507, nombre: "FSM - OTROS",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
         ]
     },
         {
@@ -378,9 +921,27 @@
         nombre: "PORTAL UNIFICADO",
         menu: "menu1",
         subopciones: [
-            { id: 601, nombre: "Acceso Usuarios",contenido: "<p>Acceso Usuarios</p>" },
-            { id: 602, nombre: "Grupos",contenido: "<p>Grupos</p>" },
-            { id: 603, nombre: "Roles", contenido: "<p>Roles</p>" },
+            { id: 601, nombre: "Acceso Usuarios",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 602, nombre: "Grupos",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 603, nombre: "Roles", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
         ]
     },
     {
@@ -388,8 +949,20 @@
         nombre: "PORTAL UNIFICADO - DOC. FINANCIERO",
         menu: "menu1",
         subopciones: [
-            { id: 701, nombre: "Generación Nota Crédito",contenido: "<p>Generación Nota Crédito</p>" },
-            { id: 702, nombre: "Generación Factura",contenido: "<p>Generación Factura</p>" },
+            { id: 701, nombre: "Generación Nota Crédito",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 702, nombre: "Generación Factura",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
         ]
     },
     {
@@ -397,8 +970,20 @@
         nombre: "PORTAL UNIFICADO - PROCESOS ACTUALIZACION",
         menu: "menu1",
         subopciones: [
-            { id: 801, nombre: "Cambio Forma Efectivo",contenido: "<p>Cambio Forma Efectivo</p>" },
-            { id: 802, nombre: "Actualización Softswitch", contenido: "<p>Actualización Softswitch</p>" },
+            { id: 801, nombre: "Cambio Forma Efectivo",contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 802, nombre: "Actualización Softswitch", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
         ]
     },
 
@@ -411,8 +996,20 @@
         nombre: "PORTAL UNIFICADO - PROCESOS ACTUALIZACION",
         menu: "menu2", 
         subopciones: [
-            { id: 1002, nombre: "Cambio Forma Efectivo", contenido: "<p>Contenido para Cambio Forma Efectivo</p>" },
-            { id: 1001, nombre: "Actualización Softswitch", contenido: "<p>Contenido para Actualización Softswitch</p>" }
+            { id: 1002, nombre: "Cambio Forma Efectivo", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` },
+            { id: 1001, nombre: "Actualización Softswitch", contenido: `
+            <h2>Manual de Soluciones</h2>               
+                            <p><a href="   " download>    </a></p>
+                            <br>
+                            <h2>Manual Técnico </h2>
+                            <p><a href="    " download>   </a></p>
+                        ` }
         ]
     }
 ];
