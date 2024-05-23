@@ -135,6 +135,9 @@
                 font-size: 12px;
             }
         }
+        .option-item.selected {
+            background-color: #e0e0e0; /* Color de sombreado */
+        }
     </style>
 </head>
 <body>
@@ -161,11 +164,14 @@
         <div id="subOptions1" class="options-container hidden">
             <h3>Sub opciones</h3>
             <div id="subOptionsList1" class="options"></div>
+            <div class="container search-bar">
+                <input type="text" id="subSearchBox1" placeholder="Buscar subopciones..." onkeyup="filterOptions('subOptionsList1')">
+            </div>
         </div>
         <!-- Contenido a la derecha para el primer menú -->
         <div id="content1" class="content">
             <div id="menu1Content">
-                <h2>Pasos a seguir</h2>
+                <h2>SOLUCIONES</h2>
                 <ul id="steps1" class="steps"></ul>
                 <a id="downloadLink1" href="#" download>Descargar Archivo</a>
                 <div id="additionalContent1"></div>
@@ -187,7 +193,11 @@
         <div id="subOptions2" class="options-container hidden">
             <h3>Sub opciones</h3>
             <div id="subOptionsList2" class="options"></div>
+            <div class="container search-bar">
+                <input type="text" id="subSearchBox2" placeholder="Buscar subopciones..." onkeyup="filterOptions('subOptionsList')">
+            </div>
         </div>
+        
         <!-- Contenido a la derecha para el segundo menú -->
         <div id="content2" class="content">
             <div id="menu2Content">
@@ -201,275 +211,338 @@
 
     <!-- JavaScript -->
     <script>
-      const data1 = {
-    PROCESOS: {
-        steps: ["Paso 1", "Paso 2", "Paso 3"],
-        file: "archivo_procesos.xlsx",
-        subOptions: {
-            WEBRPRO: {
-                steps: ["MANUAL DE WEBPRO"],
-                file: "FCP-Metodos de pago.docx",
-               
-            },
-            FSMVISTEC: {
-                steps: ["Sub Paso 2.1", "Sub Paso 2.2", "Sub Paso 2.3"],
-                file: "archivo_fsmvistec.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="C:/path/to/document_fsmvistec_sol1.pdf">Documento Solución 1 FSMVISTEC</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="C:/path/to/document_fsmvistec_sol2.pdf">Documento Solución 2 FSMVISTEC</a></p>
-                `
-            }
-        }
+      const data1 = [
+      {
+        id: 1,
+        nombre: "TITAN",
+        menu: "menu1",
+        subopciones: [
+            // ... (subopciones de TITAN ya incluidas)
+            { id: 101, nombre: "Análisis de información", contenido: `
+                            <p>Este proceso permite analizar datos relevantes para la toma de decisiones.</p>
+                            <p><a href="colocar PEDECO.txt" download>Descargar guía en PDF</a></p>
+                            <p><a href="FCP-Metodos de pago.docx" download>Descargar datos de ejemplo en Excel</a></p>
+                        `
+                    },
+                    { id: 102, nombre: "Aprovisionamiento GPON Internet", contenido: "<p>Contenido para Aprovisionamiento GPON Internet</p>" },
+                    { id: 103, nombre: "Aprovisionamiento GPON Telefonía", contenido: "<p>Contenido para Aprovisionamiento GPON Telefonía</p>" },
+                    { id: 104, nombre: "Aprovisionamiento Internet", contenido: "<p>Contenido para Aprovisionamiento Internet</p>" },
+                    { id: 105, nombre: "Aprovisionamiento Telefonía", contenido: "<p>Contenido para Aprovisionamiento Telefonía</p>" },
+                    { id: 106, nombre: "Aprovisionamiento TV", contenido: "<p>Contenido para Aprovisionamiento TV</p>" },
+                    { id: 107, nombre: "Pagada", contenido: "<p>Contenido para Pagada</p>" },
+                    { id: 108, nombre: "Conciliación - Controladores", contenido: "<p>Contenido para Conciliación - Controladores</p>" },
+                    { id: 109, nombre: "Conciliación - Débitos Bancarios", contenido: "<p>Contenido para Conciliación - Débitos Bancarios</p>" },
+                    { id: 110, nombre: "Conciliación - Equipos", contenido: "<p>Contenido para Conciliación - Equipos</p>" },
+                    { id: 111, nombre: "Conciliación - Facturación", contenido: "<p>Contenido para Conciliación - Facturación</p>" },
+                    { id: 112, nombre: "Conciliación - Otros", contenido: "<p>Contenido para Conciliación - Otros</p>" },
+                    { id: 113, nombre: "Conciliación - Pagos", contenido: "<p>Contenido para Conciliación - Pagos</p>" },
+                    { id: 114, nombre: "Conciliación - Satelital Prepago", contenido: "<p>Contenido para Conciliación - Satelital Prepago</p>" },
+                    { id: 115, nombre: "Creación Nodos", contenido: "<p>Contenido para Creación Nodos</p>" },
+                    { id: 116, nombre: "Facturación - Buró de Crédito", contenido: "<p>Contenido para Facturación - Buró de Crédito</p>" },
+                    { id: 117, nombre: "Facturación - Detalle de Factura", contenido: "<p>Contenido para Facturación - Detalle de Factura</p>" },
+                    { id: 118, nombre: "Facturación - Electrónica", contenido: "<p>Contenido para Facturación - Electrónica</p>" },
+                    { id: 119, nombre: "Facturación - Mal Facturado", contenido: "<p>Contenido para Facturación - Mal Facturado</p>" },
+                    { id: 120, nombre: "Facturación - No Facturado", contenido: "<p>Contenido para Facturación - No Facturado</p>" },
+                    { id: 121, nombre: "Facturación - Otros", contenido: "<p>Contenido para Facturación - Otros</p>" },
+                    { id: 122, nombre: "Facturación - Promociones y Descuentos", contenido: "<p>Contenido para Facturación - Promociones y Descuentos</p>" },
+                    { id: 123, nombre: "Flujos - BAJVALPEN", contenido: "<p>Contenido para Flujos - BAJVALPEN</p>" },
+                    { id: 124, nombre: "Flujos - CAMPLAF", contenido: "<p>Contenido para Flujos - CAMPLAF</p>" },
+                    { id: 125, nombre: "Flujos - CAMUSEREM", contenido: "<p>Contenido para Flujos - CAMUSEREM</p>" },
+                    { id: 126, nombre: "Flujos - CANCONT", contenido: "<p>Contenido para Flujos - CANCONT</p>" },
+                    { id: 127, nombre: "Flujos - CANMORAF", contenido: "<p>Contenido para Flujos - CANMORAF</p>" },
+                    { id: 128, nombre: "Flujos - CESDER", contenido: "<p>Contenido para Flujos - CESDER</p>" },
+                    { id: 129, nombre: "Flujos - CSPROADIF", contenido: "<p>Contenido para Flujos - CSPROADIF</p>" },
+                    { id: 130, nombre: "Flujos - FSM_APROAD", contenido: "<p>Contenido para Flujos - FSM_APROAD</p>" },
+                    { id: 131, nombre: "Flujos - FSM_CAMDIR", contenido: "<p>Contenido para Flujos - FSM_CAMDIR</p>" },
+            { id: 132, nombre: "Flujos - FSM_VISTEC", contenido: "<p>Contenido para Flujos - FSM_VISTEC</p>" },      
+            { id: 133, nombre: "Flujos - MIGRA_TEC", contenido: "<p>Contenido para Flujos - MIGRA_TEC</p>" },
+            { id: 134, nombre: "Flujos - MODCUE", contenido: "<p>Contenido para Flujos - MODCUE</p>" },
+            { id: 135, nombre: "Flujos - OTROS", contenido: "<p>Contenido para Flujos - OTROS</p>" },
+            { id: 136, nombre: "Flujos - PRELIQ", contenido: "<p>Contenido para Flujos - PRELIQ</p>" },
+            { id: 137, nombre: "Flujos - REACTCONT", contenido: "<p>Contenido para Flujos - REACTCONT</p>" },
+            { id: 138, nombre: "Flujos - REFREINTEL", contenido: "<p>Contenido para Flujos - REFREINTEL</p>" },
+            { id: 139, nombre: "Flujos - REGCLIF", contenido: "<p>Contenido para Flujos - REGCLIF</p>" },
+            { id: 140, nombre: "Flujos - RPROTCMTVCF", contenido: "<p>Contenido para Flujos - RPROTCMTVCF</p>" },
+            { id: 141, nombre: "Flujos - SUSPRO", contenido: "<p>Contenido para Flujos - SUSPRO</p>" },
+            { id: 142, nombre: "Flujos - VTAART", contenido: "<p>Contenido para Flujos - VTAART</p>" },
+            { id: 143, nombre: "Flujos - WEB_VISTEC", contenido: "<p>Contenido para Flujos - WEB_VISTEC</p>" },
+            { id: 144, nombre: "Promoción - Upgrade", contenido: "<p>Contenido para Promoción - Upgrade</p>" },
+            { id: 145, nombre: "Regularización - Ajustes", contenido: "<p>Contenido para Regularización - Ajustes</p>" },
+            { id: 146, nombre: "Regularización - Clearing", contenido: "<p>Contenido para Regularización - Clearing</p>" },
+            { id: 147, nombre: "Regularización - Equipos", contenido: "<p>Contenido para Regularización - Equipos</p>" },
+            { id: 148, nombre: "Regularización - Pagos", contenido: "<p>Contenido para Regularización - Pagos</p>" },
+            { id: 149, nombre: "Reportes", contenido: "<p>Contenido para Reportes</p>" },
+            { id: 150, nombre: "SGR - Regularización de equipos", contenido: "<p>Contenido para SGR - Regularización de equipos</p>" },
+            { id: 151, nombre: "Xtrim APP", contenido: "<p>Contenido para Xtrim APP</p>" }
+        ]
     },
-    EQUIPOS: {
-        steps: ["Paso 1", "Paso 2", "Paso 3"],
-        file: "archivo_equipos.xlsx",
-        subOptions: {
-            REGULARIZAR_EN_AS2: {
-                steps: ["Sub Paso 1.1", "Sub Paso 1.2", "Sub Paso 1.3"],
-                file: "archivo_regularizar_en_as2.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="https://example.com/documento_regularizar_as2_sol1" target="_blank">Documento Solución 1 REGULARIZAR EN AS2</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="https://example.com/documento_regularizar_as2_sol2" target="_blank">Documento Solución 2 REGULARIZAR EN AS2</a></p>
-                `
-            },
-            PDECO: {
-                steps: ["QUERY PARA COLOCAR"],
-                file: "archivo_pdeco.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1: Query</strong></p>
-                    <p><a href="Revisar PEDECO.txt" target="_blank">Documento Query PDECO</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="https://example.com/documento_pdeco_solucion2" target="_blank">Documento Solución 2 PDECO</a></p>
-                `
-            }
-        }
+    {
+        id: 2,
+        nombre: "CONTRATACION WEB",
+        menu: "menu1",
+        subopciones: [
+            { id: 201, nombre: "Begin Task - Punto Rojo", contenido: "<p>Begin Task - Punto Rojo</p>" },
+            { id: 202, nombre: "Begin Task - Sin Error", contenido: "<p>Begin Task - Sin Error</p>" },
+            { id: 203, nombre: "Biometria", contenido: "<p>Biometria</p>" },
+            { id: 204, nombre: "Close Order - Punto Rojo", contenido: "<p>Close Order - Punto Rojo</p>" },
+            { id: 205, nombre: "Código de vendedor", contenido: "<p>Código de vendedor</p>" },
+            { id: 206, nombre: "E-mail aceptación", contenido: "<p>E-mail aceptación</p>" },
+            { id: 207, nombre: "Enciclado", contenido: "<p>Enciclado</p>" },
+            { id: 208, nombre: "FSM Crea Orden", contenido: "<p>FSM Crea Orden</p>" },
+            { id: 209, nombre: "No asigna cupo", contenido: "<p>No asigna cupo</p>" },
+            { id: 210, nombre: "No crea cliente", contenido: "<p>No crea cliente</p>" },
+            { id: 211, nombre: "No crea cuenta", contenido: "<p>No crea cuenta</p>" },
+            { id: 212, nombre: "No Genera Orden y Tarea", contenido: "<p>No Genera Orden y Tarea</p>" },
+        ]
     },
-    FACTURACION: {
-        steps: ["Paso 1", "Paso 2", "Paso 3"],
-        file: "archivo_facturacion.xlsx",
-        subOptions: {
-            PROMOCIONES: {
-                steps: ["Sub Paso 1.1", "Sub Paso 1.2", "Sub Paso 1.3"],
-                file: "archivo_promociones.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="https://example.com/promociones_sol1" target="_blank">Documento Solución 1 PROMOCIONES</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="https://example.com/promociones_sol2" target="_blank">Documento Solución 2 PROMOCIONES</a></p>
-                `
-            },
-            NO_REFLEJA_PAGO: {
-                steps: ["Sub Paso 2.1", "Sub Paso 2.2", "Sub Paso 2.3"],
-                file: "archivo_no_pago.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="C:/path/to/document_no_pago_sol1.pdf">Documento Solución 1 NO REFLEJA PAGO</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="C:/path/to/document_no_pago_sol2.pdf">Documento Solución 2 NO REFLEJA PAGO</a></p>
-                `
-            }
-        }
-    }
-};
+    {
+        id: 3,
+        nombre: "ECOMMERCE B2C",
+        menu: "menu1",
+        subopciones: [
+            { id: 301, nombre: "Biometría (B2B)", contenido: "<p>Biometría (B2B)</p>" },
+            { id: 302, nombre: "E-mail aceptación (B2B)", contenido: "<p>E-mail aceptación (B2B)</p>" },
+            { id: 303, nombre: "FSM Crea orden (B2B)", contenido: "<p>FSM Crea orden (B2B)</p>" },
+            { id: 304, nombre: "No asigna cupo (B2B)", contenido: "<p>No asigna cupo (B2B)</p>" },
+            { id: 305, nombre: "No crea Cliente (B2B)", contenido: "<p>No crea Cliente (B2B)</p>" },
+            { id: 306, nombre: "No crea Cuenta (B2B)", contenido: "<p>No crea Cuenta (B2B)</p>" },
+            { id: 307, nombre: "No Genera Orden y Tarea (B2B)", contenido: "<p>No Genera Orden y Tarea (B2B)</p>" },
+            { id: 308, nombre: "Biometría (B2C)", contenido: "<p>Biometría (B2C)</p>" },
+            { id: 309, nombre: "E-mail aceptación (B2C)", contenido: "<p>E-mail aceptación (B2C)</p>" },
+            { id: 310, nombre: "FSM Crea orden (B2C)",contenido: "<p>FSM Crea orden (B2C)</p>" },
+            { id: 311, nombre: "No asigna cupo (B2C)", contenido: "<p>No asigna cupo (B2C)</p>" },
+            { id: 312, nombre: "No crea Cliente (B2C)", contenido: "<p>No crea Cliente (B2C)</p>" },
+            { id: 313, nombre: "No crea Cuenta (B2C)", contenido: "<p>No crea Cuenta (B2C)</p>" },
+            { id: 314, nombre: "No Genera Orden y Tarea (B2C)", contenido: "<p>No Genera Orden y Tarea (B2C)</p>" },
+        ]
+    },
+    {
+        id: 4,
+        nombre: "XTRIM APP",
+        menu: "menu1",
+        subopciones: [
+            { id: 401, nombre: "Aprovisionar", contenido: "<p>Aprovisionar</p>" },
+            { id: 402, nombre: "Crear estructura",contenido: "<p>Crear estructura</p>" },
+            { id: 403, nombre: "Gratuidad", contenido: "<p>Gratuidad</p>" },
+            { id: 404, nombre: "Reenvió por contingencia", contenido: "<p>Reenvió por contingencia</p>" },
+            { id: 405, nombre: "Reenvió por modificación de cuenta",contenido: "<p>Reenvió por modificación de cuenta</p>" },
+            { id: 406, nombre: "Registro manual",contenido: "<p>Registro manual</p>" },
+            { id: 407, nombre: "Sin paquetes",contenido: "<p>Sin paquetes</p>" },
+            { id: 408, nombre: "Otro",contenido: "<p>Otro</p>" },
+        ]
+    },
+    {
+        id: 5,
+        nombre: "FSM",
+        menu: "menu1",
+        subopciones: [
+            { id: 501, nombre: "FSM - VISTEC",contenido: "<p>FSM - VISTEC</p>" },
+            { id: 502, nombre: "FSM - CAMDIR",contenido: "<p>FSM - CAMDIR</p>" },
+            { id: 503, nombre: "FSM - CANCONT",contenido: "<p>FSM - CANCONT</p>" },
+            { id: 504, nombre: "FSM - RPROTC", contenido: "<p>FSM - RPROTC</p>" },
+            { id: 505, nombre: "FSM - MIGRA", contenido: "<p>FSM - MIGRA</p>" },
+            { id: 506, nombre: "FSM - APROAD", contenido: "<p>FSM - APROAD</p>" },
+            { id: 507, nombre: "FSM - OTROS",contenido: "<p>FSM - OTROS</p>" },
+        ]
+    },
+        {
+        id: 6,
+        nombre: "PORTAL UNIFICADO",
+        menu: "menu1",
+        subopciones: [
+            { id: 601, nombre: "Acceso Usuarios",contenido: "<p>Acceso Usuarios</p>" },
+            { id: 602, nombre: "Grupos",contenido: "<p>Grupos</p>" },
+            { id: 603, nombre: "Roles", contenido: "<p>Roles</p>" },
+        ]
+    },
+    {
+        id: 7,
+        nombre: "PORTAL UNIFICADO - DOC. FINANCIERO",
+        menu: "menu1",
+        subopciones: [
+            { id: 701, nombre: "Generación Nota Crédito",contenido: "<p>Generación Nota Crédito</p>" },
+            { id: 702, nombre: "Generación Factura",contenido: "<p>Generación Factura</p>" },
+        ]
+    },
+    {
+        id: 8,
+        nombre: "PORTAL UNIFICADO - PROCESOS ACTUALIZACION",
+        menu: "menu1",
+        subopciones: [
+            { id: 801, nombre: "Cambio Forma Efectivo",contenido: "<p>Cambio Forma Efectivo</p>" },
+            { id: 802, nombre: "Actualización Softswitch", contenido: "<p>Actualización Softswitch</p>" },
+        ]
+    },
 
-        const data2 = {
-            CORTES: {
-                steps: ["Paso 1", "Paso 2", "Paso 3"],
-        file: "archivo_cortes.xlsx",
-        subOptions: {
-            OPCION: {
-                steps: ["Sub Paso 1.1", "Sub Paso 1.2", "Sub Paso 1.3"],
-                file: "archivo_opcion.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="https://example.com/documento_opcion_sol1" target="_blank">Documento Solución 1 OPCION</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="https://example.com/documento_opcion_sol2" target="_blank">Documento Solución 2 OPCION</a></p>
-                `
-            },
-            OPCION_B: {
-                steps: ["Sub Paso 2.1", "Sub Paso 2.2", "Sub Paso 2.3"],
-                file: "archivo_opcion_b.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="C:/path/to/document_opcion_b_sol1.pdf">Documento Solución 1 OPCION B</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="C:/path/to/document_opcion_b_sol2.pdf">Documento Solución 2 OPCION B</a></p>
-                `
-            }
-        }
-    },
-    AFECTACIONES: {
-        steps: ["Paso 1", "Paso 2", "Paso 3"],
-        file: "archivo_afectaciones.xlsx",
-        subOptions: {
-            BANCO_1: {
-                steps: ["Sub Paso 1.1", "Sub Paso 1.2", "Sub Paso 1.3"],
-                file: "archivo_banco_1.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="https://example.com/documento_banco_1_sol1" target="_blank">Documento Solución 1 BANCO 1</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="https://example.com/documento_banco_1_sol2" target="_blank">Documento Solución 2 BANCO 1</a></p>
-                `
-            },
-            BANCO_2: {
-                steps: ["Sub Paso 2.1", "Sub Paso 2.2", "Sub Paso 2.3"],
-                file: "archivo_banco_2.xlsx",
-                additionalContent: `
-                    <p><strong>Solución 1</strong></p>
-                    <p><a href="C:/path/to/document_banco_2_sol1.pdf">Documento Solución 1 BANCO 2</a></p>
-                    <p><strong>Solución 2</strong></p>
-                    <p><a href="C:/path/to/document_banco_2_sol2.pdf">Documento Solución 2 BANCO 2</a></p>
-                `
-            }
-        }
-    },
-    MEDIOS_MAGNETICOS: {
-        steps: ["Paso 1.1", "Paso 1.2", "Paso 1.3"],
-        file: "archivo_medios_magneticos.xlsx",
-        additionalContent: `
-            <p><strong>Solución 1</strong></p>
-            <p><a href="https://example.com/medios_magneticos_sol1" target="_blank">Documento Solución 1 MEDIOS MAGNETICOS</a></p>
-            <p><strong>Solución 2</strong></p>
-            <p><a href="https://example.com/medios_magneticos_sol2" target="_blank">Documento Solución 2 MEDIOS MAGNETICOS</a></p>
-        `
-    }
-        };
 
-        // Inicializar las opciones en el DOM
-        function initializeOptions(containerId, data) {
+    ];
+
+    const data2 = [
+    {
+        id: 1000,
+        nombre: "PORTAL UNIFICADO - PROCESOS ACTUALIZACION",
+        menu: "menu2", 
+        subopciones: [
+            { id: 1002, nombre: "Cambio Forma Efectivo", contenido: "<p>Contenido para Cambio Forma Efectivo</p>" },
+            { id: 1001, nombre: "Actualización Softswitch", contenido: "<p>Contenido para Actualización Softswitch</p>" }
+        ]
+    }
+];
+       // Inicializar las opciones en el DOM
+       function initializeOptions(containerId, data) {
             const optionsContainer = document.getElementById(containerId);
             optionsContainer.innerHTML = ''; // Limpiar opciones previas
-            for (let key in data) {
+
+            data.forEach(opcion => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'option-item';
-                optionDiv.textContent = key.replace('_', ' ');
-                optionDiv.setAttribute('data-value', key);
-                optionDiv.onclick = () => displayMenu(key, data, containerId);
+                optionDiv.textContent = opcion.nombre;
+                optionDiv.setAttribute('data-id', opcion.id);
+                optionDiv.onclick = () => showSubOptions(opcion.menu, opcion.id);
                 optionsContainer.appendChild(optionDiv);
-            }
-        }
-
-        function filterOptions(containerId) {
-            const searchValue = document.getElementById(`searchBox${containerId.charAt(containerId.length - 1)}`).value.toLowerCase();
-            const options = document.querySelectorAll(`#${containerId} .option-item`);
-            options.forEach(option => {
-                const optionText = option.textContent.toLowerCase();
-                option.style.display = optionText.includes(searchValue) ? '' : 'none';
             });
         }
+        let selectedOptionId = null;
+        // Mostrar las subopciones
+        function showSubOptions(menu, id) {
+    const data = menu === 'menu1' ? data1 : data2;
+    const subOptionsContainer = document.getElementById(`subOptions${menu === 'menu1' ? 1 : 2}`);
+    const subOptionsList = document.getElementById(`subOptionsList${menu === 'menu1' ? 1 : 2}`);
+    const selectedOption = data.find(opcion => opcion.id === id);
 
-        function displayMenu(selectedOption, data, containerId) {
-    const stepsList = document.getElementById(`steps${containerId.charAt(containerId.length - 1)}`);
-    const downloadLink = document.getElementById(`downloadLink${containerId.charAt(containerId.length - 1)}`);
-    const additionalContent = document.getElementById(`additionalContent${containerId.charAt(containerId.length - 1)}`);
-    const subOptionsContainer = document.getElementById(`subOptions${containerId.charAt(containerId.length - 1)}`);
+    if (selectedOption) {
+        subOptionsList.innerHTML = ''; // Limpiar subopciones previas
+        selectedOption.subopciones.forEach(subopcion => {
+            const subOptionDiv = document.createElement('div');
+            subOptionDiv.className = 'option-item';
+            subOptionDiv.textContent = subopcion.nombre;
+            subOptionDiv.setAttribute('data-id', subopcion.id);
+            subOptionDiv.onclick = () => showContent(subopcion);
+            subOptionsList.appendChild(subOptionDiv);
+        });
 
-    stepsList.innerHTML = '';
-    additionalContent.innerHTML = '';
-    if (selectedOption && data[selectedOption]) {
-      data[selectedOption].steps.forEach(step => {
-        const listItem = document.createElement('li');
-        listItem.textContent = step;
-        stepsList.appendChild(listItem);
-      });
-      downloadLink.href = data[selectedOption].file;
-      downloadLink.textContent = `Descargar ${data[selectedOption].file}`;
-      if (data[selectedOption].additionalContent) {
-        additionalContent.innerHTML = data[selectedOption].additionalContent;
-      }
-      document.getElementById(`menu${containerId.charAt(containerId.length - 1)}Content`).style.display = 'none'; // Ocultar contenido principal
+        subOptionsContainer.classList.remove('hidden');
 
-      // Mostrar el contenedor de subopciones
-      if (data[selectedOption].subOptions) {
-    subOptionsContainer.classList.remove('hidden');
-    displaySubOptions(selectedOption, data[selectedOption].subOptions, containerId.charAt(containerId.length - 1));
-  } else {
-    subOptionsContainer.classList.add('hidden'); // Ocultar si no hay subopciones
-    document.getElementById(`menu${containerId.charAt(containerId.length - 1)}Content`).style.display = 'block'; // Mostrar contenido si no hay subopciones
-  }
+        // Filtrar subopciones después de mostrarlas
+        filterOptions(`subOptionsList${menu === 'menu1' ? 1 : 2}`); // Filtrar de nuevo
+    }
+
+    // Resaltar la opción seleccionada y quitar resaltado de la anterior
+    if (selectedOptionId) {
+        const prevOption = document.querySelector(`.option-item[data-id="${selectedOptionId}"]`);
+        if (prevOption) {
+            prevOption.classList.remove('selected');
+        }
+    }
+    const currentOption = document.querySelector(`.option-item[data-id="${id}"]`);
+    if (currentOption) {
+        currentOption.classList.add('selected');
+    }
+    selectedOptionId = id; // Actualizar la opción seleccionada
 }
-  }
 
+        // Mostrar el contenido
+        function showContent(subopcion) {
+    const contentContainer = document.getElementById(`content${subopcion.id > 1000 ? 2 : 1}`);
+    const additionalContent = contentContainer.querySelector('#additionalContent1, #additionalContent2');
+    const downloadLink = contentContainer.querySelector('a');
 
+    // Verificar si hay un archivo para descargar
+    if (subopcion.archivo) {
+        // Crear un enlace de descarga
+        downloadLink.href = subopcion.archivo;
+        downloadLink.download = ''; // Forzar descarga (opcional)
+        downloadLink.textContent = 'Descargar Archivo'; // Texto del enlace
 
-
- 
-  function displaySubMenu(parentOption, selectedSubOption, subOptionsData, menuNumber) {
-  const stepsList = document.getElementById(`steps${menuNumber}`);
-  const downloadLink = document.getElementById(`downloadLink${menuNumber}`);
-  const additionalContent = document.getElementById(`additionalContent${menuNumber}`);
-
-  stepsList.innerHTML = '';
-  additionalContent.innerHTML = '';
-
-  if (selectedSubOption && subOptionsData[selectedSubOption]) {
-    subOptionsData[selectedSubOption].steps.forEach(step => {
-      const listItem = document.createElement('li');
-      listItem.textContent = step;
-      stepsList.appendChild(listItem);
-    });
-
-    if (subOptionsData[selectedSubOption].file.endsWith('.txt')) {
-      // Crear un enlace temporal y simular un clic para descargar archivos .txt
-      const tempLink = document.createElement('a');
-      tempLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(subOptionsData[selectedSubOption].fileContent);
-      tempLink.download = subOptionsData[selectedSubOption].file;
-      tempLink.style.display = 'none';
-
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      document.body.removeChild(tempLink);
+        // Ocultar el contenido adicional si hay un archivo
+        additionalContent.innerHTML = '';
     } else {
-      // Manejar otros tipos de archivos como antes
-      downloadLink.href = subOptionsData[selectedSubOption].file;
+        // Mostrar el contenido adicional si no hay archivo
+        additionalContent.innerHTML = subopcion.contenido;
+
+        // Ocultar el enlace de descarga
+        downloadLink.href = '#';
+        downloadLink.textContent = '';
     }
 
-    downloadLink.textContent = `Descargar ${subOptionsData[selectedSubOption].file}`;
-
-    if (subOptionsData[selectedSubOption].additionalContent) {
-      additionalContent.innerHTML = subOptionsData[selectedSubOption].additionalContent;
-    }
-  }
-
-  // Mostrar el contenido del submenú
-  document.getElementById(`menu${menuNumber}Content`).style.display = 'block';
+    // Ocultar el contenedor de subopciones
+    const subOptionsContainer = document.getElementById(`subOptions${subopcion.id > 1000 ? 2 : 1}`);
+    subOptionsContainer.classList.add('hidden');
 }
-function displaySubOptions(parentOption, subOptionsData, menuNumber) {
-  const subOptionsList = document.getElementById(`subOptionsList${menuNumber}`);
-  subOptionsList.innerHTML = ''; // Limpiar sub opciones previas
-
-  for (let key in subOptionsData) {
-    const optionDiv = document.createElement('div');
-    optionDiv.className = 'option-item';
-    optionDiv.textContent = key.replace('_', ' ');
-    optionDiv.setAttribute('data-value', key);
-    optionDiv.onclick = () => {
-      displaySubMenu(parentOption, key, subOptionsData, menuNumber);
-      filterOptions(`subOptionsList${menuNumber}`); // Filtrar las subopciones al hacer clic
-    };
-
-    subOptionsList.appendChild(optionDiv);
-  }
-}
-
+        // Mostrar el menú seleccionado
         function showMenu(menuId) {
-            document.getElementById('menu1Container').classList.add('hidden');
-            document.getElementById('menu2Container').classList.add('hidden');
-            document.getElementById(`${menuId}Container`).classList.remove('hidden');
+            const menu1Container = document.getElementById('menu1Container');
+            const menu2Container = document.getElementById('menu2Container');
+
+            if (menuId === 'menu1') {
+                menu1Container.classList.remove('hidden');
+                menu2Container.classList.add('hidden');
+                initializeOptions('options1', data1);
+            } else if (menuId === 'menu2') {
+                menu1Container.classList.add('hidden');
+                menu2Container.classList.remove('hidden');
+                initializeOptions('options2', data2);
+            }
+            const subOptionsContainer1 = document.getElementById('subOptions1');
+            const subOptionsContainer2 = document.getElementById('subOptions2');
+            subOptionsContainer1.classList.add('hidden');
+            subOptionsContainer2.classList.add('hidden');
+
+            if (selectedOptionId) {
+                const prevOption = document.querySelector(`.option-item[data-id="${selectedOptionId}"]`);
+                if (prevOption) {
+                    prevOption.classList.remove('selected');
+                }
+                selectedOptionId = null; // Restablecer la opción seleccionada
+            }
+        }
+        
+
+        // Filtrar opciones en función del texto ingresado
+        function filterOptions(containerId) {
+    const isSubOptionSearch = containerId.startsWith('subOptionsList');
+    const searchBoxId = isSubOptionSearch ? `subSearchBox${containerId === 'subOptionsList1' ? 1 : 2}` : `searchBox${containerId === 'options1' ? 1 : 2}`;
+    const searchBox = document.getElementById(searchBoxId);
+    const filter = searchBox.value.toLowerCase();
+    const itemsToFilter = document.querySelectorAll(`#${containerId} .option-item`);
+
+    itemsToFilter.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        let shouldShowItem = true; // Asumimos que el elemento debe mostrarse por defecto
+
+        if (isSubOptionSearch) {
+            const subOptionData = (containerId === 'subOptionsList1' ? data1 : data2)
+                .find(option => option.id === selectedOptionId)
+                ?.subopciones
+                .find(sub => sub.id === parseInt(item.getAttribute('data-id'), 10));
+
+            const keywordsMatch = subOptionData?.keywords?.some(keyword => keyword.toLowerCase().includes(filter));
+
+            // Mostrar/ocultar la subopción según el filtro
+            shouldShowItem = text.includes(filter) || keywordsMatch;
+        } else {
+            // Filtrar opciones principales
+            shouldShowItem = text.includes(filter);
         }
 
-        // Inicialización al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeOptions('options1', data1);
-            initializeOptions('options2', data2);
+        item.style.display = shouldShowItem ? '' : 'none';
+
+        // Si es una subopción, mostrar/ocultar el contenedor padre según si hay subopciones visibles
+        if (isSubOptionSearch) {
+            const parentOption = item.closest('.options-container');
+            const visibleSubOptions = parentOption.querySelectorAll('.option-item:not([style*="display: none"])');
+            parentOption.style.display = visibleSubOptions.length > 0 ? '' : 'none';
+        }
+    });
+}
+
+
+// Inicialización al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    initializeOptions('options1', data1);
+    initializeOptions('options2', data2);
         });
+ 
     </script>
     
 </body>
