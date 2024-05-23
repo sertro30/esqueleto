@@ -42,18 +42,25 @@
             margin-left: 20px; /* Ajusta la separación entre los botones */
         }
         .container {
-            display: flex;
-            flex-wrap: wrap; /* Para que los elementos se puedan mover a la siguiente línea */
-            justify-content: space-between;
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    align-items: flex-start; /* Alineación vertical */
+}
+
+
         .options-container {
+            display: inline-flex; /* Cambiar a inline-flex */
+    flex-direction: column; /* Mantener la dirección de los elementos en columna */
             flex: 1;
             margin-right: 20px;
             min-width: 280px; /* Ajuste mínimo para pantallas pequeñas */
+            width: 48%;
         }
+        
         .options {
             max-height: 300px; /* Ajuste la altura máxima */
             overflow-y: auto;
@@ -92,16 +99,16 @@
             margin-bottom: 10px;
         }
         .search-bar {
-            margin-bottom: 20px;
-        }
-        .search-bar input[type="text"] {
-            width: 100%; /* Ajuste para que ocupe el 100% del contenedor */
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-right: 10px;
-            box-sizing: border-box; /* Incluye padding y border en el tamaño total */
-        }
+    margin-bottom: 20px;
+    width: 80%; /* Ocupar todo el ancho */
+}
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
         .hidden {
             display: none;
         }
@@ -138,6 +145,17 @@
         .option-item.selected {
             background-color: #e0e0e0; /* Color de sombreado */
         }
+        .centered-title {
+    text-align: 50%; /* Centrar horizontalmente */
+    position: absolute; /* Posicionar el título absolutamente */
+    top: 10%; /* Moverlo a la mitad verticalmente */
+    left: 63%; /* Moverlo a la mitad horizontalmente */
+   
+    transform: translate(-50%, -50%); /* Ajustar la posición para centrarlo perfectamente */
+    width: 100%; 
+    margin: 20px 0; /* Agregar márgenes superior e inferior */
+}
+
     </style>
 </head>
 <body>
@@ -148,13 +166,17 @@
                 <button onclick="showMenu('menu1')">MESA DE SERVICIO</button>
                 <button onclick="showMenu('menu2')">PROCESOS MASIVOS</button>
             </div>
+            
         </div>
     </div>
+    <h2 class="centered-title">Base de conocimientos</h2> 
+
     <div id="menu1Container" class="container">
+        
         <!-- Primer menú de opciones -->
         <div class="options-container">
-            <h2>Base de conocimientos</h2>
-            <h3>MESA DE SERVICIO</h3>
+           
+            
             <div class="container search-bar">
                 <input type="text" id="searchBox1" placeholder="Buscar..." onkeyup="filterOptions('options1')">
             </div>
@@ -162,7 +184,7 @@
         </div>
         <!-- Segunda lista de opciones -->
         <div id="subOptions1" class="options-container hidden">
-            <h3>Sub opciones</h3>
+            
            
             <div class="container search-bar">
                 <input type="text" id="subSearchBox1" placeholder="Buscar subopciones..." onkeyup="filterOptions('subOptionsList1')">
@@ -184,7 +206,6 @@
         <!-- Segundo menú de opciones -->
         <div class="options-container">
             <h2>Base de conocimientos</h2>
-            <h3>PROCESOS MASIVOS</h3>
             <div class="container search-bar">
                 <input type="text" id="searchBox2" placeholder="Buscar..." onkeyup="filterOptions('options2')">
             </div>
@@ -192,7 +213,7 @@
         </div>
         <!-- Segunda lista de opciones -->
         <div id="subOptions2" class="options-container hidden">
-            <h3>Sub opciones</h3>
+            
             
             <div class="container search-bar">
                 <input type="text" id="subSearchBox2" placeholder="Buscar subopciones..." onkeyup="filterOptions('subOptionsList')">
@@ -469,7 +490,7 @@
 
     // Ocultar el contenedor de subopciones
     const subOptionsContainer = document.getElementById(`subOptions${subopcion.id > 1000 ? 2 : 1}`);
-    subOptionsContainer.classList.add('hidden');
+    
 }
         // Mostrar el menú seleccionado
         function showMenu(menuId) {
